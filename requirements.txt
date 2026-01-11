@@ -1,0 +1,9 @@
+    fastapi
+uvicorn[standard]
+pydantic
+pydantic[email, timezone]
+pydantic-core
+sqlalchemy
+psycopg2-binary
+typing-extensions
+annotated-types
