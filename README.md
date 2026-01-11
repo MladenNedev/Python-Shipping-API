@@ -84,6 +84,33 @@ Relationships:
 
 All relationships are enforced via foreign keys and modeled explicitly in SQLAlchemy.
 
+```mermaid
+erDiagram
+    MERCHANT {
+        UUID id PK
+        string name
+        datetime created_at
+    }
+
+    SHIPMENT {
+        UUID id PK
+        UUID merchant_id FK
+        UUID user_id
+        string name
+        datetime created_at
+    }
+
+    SHIPMENT_EVENT {
+        UUID id PK
+        UUID shipment_id FK
+        string event_type
+        string source
+        datetime created_at
+    }
+
+    MERCHANT ||--o{ SHIPMENT : owns
+    SHIPMENT ||--o{ SHIPMENT_EVENT : has
+```
 ---
 
 ## 5. Project Structure
